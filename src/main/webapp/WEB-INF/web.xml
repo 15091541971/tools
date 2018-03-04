@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5">
+
+  <display-name>Archetype Created Web Application</display-name>
+  <context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>classpath:/spring.xml;classpath:/Spring-mybatis.xml</param-value>
+  </context-param>
+  <listener><listener-class>
+  org.springframework.web.context.ContextLoaderListener
+  
+  </listener-class></listener>
+  
+ <servlet>
+ <servlet-name>dispathcer</servlet-name>
+ <servlet-class> org.springframework.web.servlet.DispatcherServlet</servlet-class>
+ <init-param>
+			<description>spring mvc 配置文件</description>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc.xml</param-value>
+</init-param>
+
+ <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping><servlet-name>dispathcer</servlet-name>
+ <url-pattern>*.do</url-pattern></servlet-mapping>
+</web-app>

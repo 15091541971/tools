@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="tools.dao.UserDao">
+       
+        <insert id="addUser" parameterType="tools.model.User">
+                insert into 
+                user
+                     (userId,userName,userPhone,userPassword,status,type)
+                 values
+                     (#{userId},
+                      #{userName},
+                      #{userPhone},
+                      #{userPassword},
+                      #{status},
+                      #{type})
+        </insert>
+     
+     
+    
+     <select id="selectUser" resultType="tools.model.User" parameterType="string">
+       select * from user where userId=#{userId}
+     </select>
+    
+   
+   <update id="updateUserStatus" parameterType="tools.model.User">
+    update 
+       user 
+    set  status=#{status}
+    where userId=#{userId}
+   
+   </update>
+ 
+</mapper>
